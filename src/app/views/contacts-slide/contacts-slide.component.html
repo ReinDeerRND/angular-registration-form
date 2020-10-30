@@ -1,0 +1,79 @@
+<h3>
+  Введите свои данные
+</h3>
+<table>
+  <tr>
+    <td>
+      <label for="email"><b>Ваш e-mail</b></label>
+    </td>
+    <td>
+      <input
+        type="text"
+        placeholder="example@email.com"
+        name="email"
+        required
+        pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"
+        [(ngModel)]="email"
+        #emailValid="ngModel"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="phone"><b>Ваш номер телефона</b></label>
+    </td>
+    <td>
+      <input
+        type="text"
+        placeholder="89001234567"
+        name="phone"
+        required
+        pattern="[0-9]{11}"
+        [(ngModel)]="phone"
+        #phoneValid="ngModel"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="address"><b>Ваш адрес</b></label>
+    </td>
+    <td>
+      <div id="map-container">
+        <div id="map"></div>
+        <input
+          type="text"
+          placeholder="Выберите адрес"
+          name="address"
+          required
+          [(ngModel)]="address"
+        />
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="datetime"><b>Дата и время</b></label>
+    </td>
+    <td>
+      <input
+        type="datetime-local"
+        name="datetime"
+        required
+        [(ngModel)]="datetime"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td align="right" colspan="2">
+      <button *ngIf="emailValid.valid && phoneValid.valid">
+        <a
+          (click)="addContacts()"
+          routerLink="/agreements"
+          routerLinkActive="active"
+          >Далее</a
+        >
+      </button>
+    </td>
+  </tr>
+</table>
